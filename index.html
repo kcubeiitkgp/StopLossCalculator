@@ -9,19 +9,22 @@
 <body>
     <h1>Stop Loss Calculator</h1>
     <form id="stopLossForm">
-        <select id="tradeType">
+        <select id="tradeType" onchange="calculateStopLossAndReturns()">
             <option value="long">Long</option>
             <option value="short">Short</option>
         </select>
-        <input type="number" id="entryPrice" placeholder="Enter Entry Price" required>
-        <input type="number" id="targetPrice" placeholder="Enter Target Price" required oninput="calculateReturnPercentage()">
-        <div id="dynamicReturnPercent">Return Percentage: 0%</div>
+        <input type="number" id="capital" placeholder="Enter Your Capital" required oninput="calculateShares()">
+        <input type="number" id="entryPrice" placeholder="Enter Entry Price" required oninput="calculateShares()">
+        <div id="numberOfShares">Shares to Buy: 0</div>
+        <input type="number" id="targetPrice" placeholder="Enter Target Price" required oninput="calculateStopLossAndReturns()">
+        <div id="absoluteReturn">Return: ₹0 (0%)</div>
         <div class="risk-reward">
-            <input type="number" id="risk" placeholder="Risk" required oninput="calculateStopLoss()">
+            <input type="number" id="risk" placeholder="Risk" required oninput="calculateStopLossAndReturns()">
             <span>:</span>
-            <input type="number" id="reward" placeholder="Reward" required oninput="calculateStopLoss()">
+            <input type="number" id="reward" placeholder="Reward" required oninput="calculateStopLossAndReturns()">
         </div>
-        <div id="result">Stop Loss Price: N/A</div>
+        <div id="stopLossResult">Stop Loss Price: N/A</div>
+        <div id="absoluteLoss">Absolute Loss at Stop Loss: ₹0 (0%)</div>
     </form>
 
     <script src="script.js"></script>

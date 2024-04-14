@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.risk-reward {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.risk-reward input {
+    width: 49%; /* Adjust width to fit on the same line */
+}
+
+.risk-reward span {
+    width: 2%;
+    text-align: center;
+}
+
+#result, #dynamicReturnPercent {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Loss Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Stop Loss Calculator</h1>
+    <form id="stopLossForm">
+        <select id="tradeType">
+            <option value="long">Long</option>
+            <option value="short">Short</option>
+        </select>
+        <input type="number" id="entryPrice" placeholder="Enter Entry Price" required>
+        <input type="number" id="targetPrice" placeholder="Enter Target Price" required oninput="calculateReturnPercentage()">
+        <div id="dynamicReturnPercent">Return Percentage: 0%</div>
+        <div class="risk-reward">
+            <input type="number" id="risk" placeholder="Risk" required oninput="calculateStopLoss()">
+            <span>:</span>
+            <input type="number" id="reward" placeholder="Reward" required oninput="calculateStopLoss()">
+        </div>
+        <div id="result">Stop Loss Price: N/A</div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

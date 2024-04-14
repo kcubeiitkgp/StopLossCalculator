@@ -7,6 +7,7 @@ function calculateReturnPercentage() {
         let priceDifference = targetPrice - entryPrice;
         let returnPercentage;
 
+        // Adjust return percentage calculation based on trade type
         if (tradeType === 'long') {
             returnPercentage = (priceDifference / entryPrice) * 100;
         } else if (tradeType === 'short') {
@@ -36,7 +37,7 @@ function calculateStopLoss() {
             stopLossPrice = entryPrice - (priceDifference * riskRewardRatio);
         } else if (tradeType === 'short') {
             // For short trades, the stop loss needs to be above the entry price
-            stopLossPrice = entryPrice + (Math.abs(priceDifference) * riskRewardRatio);
+            stopLossPrice = entryPrice - (priceDifference * riskRewardRatio);
         }
 
         document.getElementById('result').innerText = `Calculated Stop Loss Price: ${stopLossPrice.toFixed(2)}`;

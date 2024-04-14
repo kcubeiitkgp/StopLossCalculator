@@ -1,19 +1,45 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner font */
     margin: 40px;
     padding: 20px;
-    background: #f4f4f4;
+    background: #f0f7ff; /* Soft blue background for easier viewing */
+    color: #333; /* Darker text for better readability */
 }
 
 form {
-    margin-bottom: 20px;
+    background: white; /* Background for form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Padding inside the form */
+    max-width: 500px; /* Max width for the form */
+    margin: 20px auto; /* Centering the form */
 }
 
 input, select, button {
     margin-top: 10px;
-    padding: 10px;
-    width: 100%;
+    padding: 12px 15px; /* More padding for better touch interaction */
+    width: 100%; /* Full width */
     box-sizing: border-box;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 4px; /* Rounded corners for inputs */
+    transition: border-color 0.3s; /* Smooth transition for interactions */
+}
+
+input:focus, select:focus, button:focus {
+    border-color: #0056b3; /* Highlight focus with color */
+    outline: none; /* Remove default focus outline */
+}
+
+button {
+    background-color: #007bff; /* Bootstrap blue for primary buttons */
+    color: white;
+    font-weight: bold;
+    cursor: pointer; /* Cursor pointer for button interaction */
+    border: none; /* Remove border */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darken button on hover for interaction cue */
 }
 
 .risk-reward {
@@ -29,6 +55,7 @@ input, select, button {
 .risk-reward span {
     width: 2%;
     text-align: center;
+    color: #666; /* Dark grey color for the colon */
 }
 
 #result, #dynamicReturnPercent {
@@ -36,4 +63,6 @@ input, select, button {
     padding: 20px;
     background: white;
     border: 1px solid #ddd;
+    border-radius: 4px; /* Rounded corners for result boxes */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for result boxes */
 }

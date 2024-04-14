@@ -1,45 +1,45 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 40px;
     padding: 20px;
-    background: #f0f7ff; /* Soft blue background for easier viewing */
-    color: #333; /* Darker text for better readability */
+    background: #f0f7ff;
+    color: #333;
 }
 
 form {
-    background: white; /* Background for form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    padding: 20px; /* Padding inside the form */
-    max-width: 500px; /* Max width for the form */
-    margin: 20px auto; /* Centering the form */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
 input, select, button {
     margin-top: 10px;
-    padding: 12px 15px; /* More padding for better touch interaction */
-    width: 100%; /* Full width */
+    padding: 12px 15px;
+    width: 100%;
     box-sizing: border-box;
-    border: 1px solid #ccc; /* Subtle border */
-    border-radius: 4px; /* Rounded corners for inputs */
-    transition: border-color 0.3s; /* Smooth transition for interactions */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
 }
 
 input:focus, select:focus, button:focus {
-    border-color: #0056b3; /* Highlight focus with color */
-    outline: none; /* Remove default focus outline */
+    border-color: #0056b3;
+    outline: none;
 }
 
 button {
-    background-color: #007bff; /* Bootstrap blue for primary buttons */
+    background-color: #007bff;
     color: white;
     font-weight: bold;
-    cursor: pointer; /* Cursor pointer for button interaction */
-    border: none; /* Remove border */
+    cursor: pointer;
+    border: none;
 }
 
 button:hover {
-    background-color: #0056b3; /* Darken button on hover for interaction cue */
+    background-color: #0056b3;
 }
 
 .risk-reward {
@@ -49,13 +49,13 @@ button:hover {
 }
 
 .risk-reward input {
-    width: 49%; /* Adjust width to fit on the same line */
+    width: 49%;
 }
 
 .risk-reward span {
     width: 2%;
     text-align: center;
-    color: #666; /* Dark grey color for the colon */
+    color: #666;
 }
 
 #result, #dynamicReturnPercent {
@@ -63,6 +63,6 @@ button:hover {
     padding: 20px;
     background: white;
     border: 1px solid #ddd;
-    border-radius: 4px; /* Rounded corners for result boxes */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for result boxes */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }

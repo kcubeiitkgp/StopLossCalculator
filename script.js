@@ -25,8 +25,8 @@ function calculateStopLoss() {
         let stopLossPrice;
         if (tradeType === 'long') {
             stopLossPrice = entryPrice - (priceDifference * riskRewardRatio);
-        } else {
-            stopLossPrice = entryPrice + (priceDifference * riskRewardRatio);
+        } else { // Corrected calculation for short trades
+            stopLossPrice = entryPrice + (Math.abs(priceDifference) * riskRewardRatio);
         }
 
         document.getElementById('result').innerText = `Calculated Stop Loss Price: ${stopLossPrice.toFixed(2)}`;

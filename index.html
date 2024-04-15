@@ -11,20 +11,27 @@
         <div class="main-content">
             <h1>Stop Loss Calculator</h1>
             <form id="stopLossForm">
+                <label for="tradeType">Trade Type:</label>
                 <select id="tradeType" onchange="calculateStopLossAndReturns()">
                     <option value="long">Long</option>
                     <option value="short">Short</option>
                 </select>
+
+                <label for="capital">Capital:</label>
                 <input type="number" id="capital" placeholder="Enter Your Capital" required oninput="calculateShares()">
+
+                <label for="entryPrice">Entry Price:</label>
                 <input type="number" id="entryPrice" placeholder="Enter Entry Price" required oninput="calculateShares()">
+
                 <div id="numberOfShares">Shares to Buy: 0</div>
+
+                <label for="targetPrice">Target Price:</label>
                 <input type="number" id="targetPrice" placeholder="Enter Target Price" required oninput="calculateStopLossAndReturns()">
+
+                <label for="riskReward">Risk:Reward Ratio (e.g., 1:3):</label>
+                <input type="text" id="riskReward" placeholder="Enter Risk:Reward like '1:3'" required oninput="calculateStopLossAndReturns()">
+
                 <div id="absoluteReturn">Return: ₹0 (0%)</div>
-                <div class="risk-reward">
-                    <input type="number" id="risk" placeholder="Risk" required oninput="calculateStopLossAndReturns()">
-                    <span>:</span>
-                    <input type="number" id="reward" placeholder="Reward" required oninput="calculateStopLossAndReturns()">
-                </div>
                 <div id="stopLossResult">Stop Loss Price: N/A</div>
                 <div id="absoluteLoss">Absolute Loss at Stop Loss: ₹0 (0%)</div>
             </form>
@@ -35,7 +42,6 @@
                 <li><a href="https://chartink.com/screener/intraday-long-stocks-7" target="_blank">Intraday long stocks</a></li>
                 <li><a href="https://chartink.com/screener/intraday-short-stocks-6" target="_blank">Intraday short stocks</a></li>
                 <li><a href="https://chartink.com/screener/copy-bullish-momentum-stocks-3847" target="_blank">Bullish momentum stocks</a></li>
-                <!-- Add more links as needed -->
             </ul>
         </div>
     </div>

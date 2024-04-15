@@ -19,19 +19,23 @@ function calculateStopLossAndReturns() {
     const reward = parseFloat(document.getElementById('reward').value) || 0;
     const tradeType = document.getElementById('tradeType').value;
 
-    // Calculate Return and Stop Loss
     if (entryPrice > 0 && targetPrice > 0 && shares > 0) {
-        const returnPercentage = ((targetPrice - entryPrice) / entryPrice) * 100;
-        const riskPercentage = returnPercentage / (reward / risk);
-        const stopLossPrice = (tradeType === 'long') ? 
-                                entryPrice * (1 - riskPercentage / 100) : 
-                                entryPrice * (1 + riskPercentage / 100);
+        let returnPercentage, stopLossPrice;
+
+        if (tradeType === 'long') {
+            returnPercentage = ((targetPrice - entryPrice) / entryPrice) * 100;
+            stopLossPrice = entryPrice - (entryPrice * (risk / (risk + reward)));
+        } else { // Corrected logic for short trades
+            returnPercentage = ((entryPrice - targetPrice) / entryPrice) * 100; // Correct calculation for short trades
+            stopLossPrice = entryPrice + (entryPrice * (risk / (risk + reward)));
+        }
+
         const lossAmount = Math.abs(entryPrice - stopLossPrice) * shares;
-        const absoluteReturn = (targetPrice - entryPrice) * shares;
+        const absoluteReturn = (tradeType === 'long' ? (targetPrice - entryPrice) : (entryPrice - targetPrice)) * shares;
 
         document.getElementById('absoluteReturn').innerText = `Return: ₹${absoluteReturn.toFixed(2)} (${returnPercentage.toFixed(2)}%)`;
         document.getElementById('stopLossResult').innerText = `Stop Loss Price: ₹${stopLossPrice.toFixed(2)}`;
-        document.getElementById('absoluteLoss').innerText = `Absolute Loss at Stop Loss: ₹${lossAmount.toFixed(2)} (${Math.abs(riskPercentage).toFixed(2)}%)`;
+        document.getElementById('absoluteLoss').innerText = `Absolute Loss at Stop Loss: ₹${lossAmount.toFixed(2)} (${Math.abs((entryPrice - stopLossPrice) / entryPrice * 100).toFixed(2)}%)`;
     }
 }
 

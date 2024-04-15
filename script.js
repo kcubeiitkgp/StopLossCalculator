@@ -2,7 +2,7 @@ function calculateStopLossAndReturns() {
     const shares = parseFloat(document.getElementById('numberOfShares').textContent.split(": ")[1]);
     const entryPrice = parseFloat(document.getElementById('entryPrice').value);
     const targetPrice = parseFloat(document.getElementById('targetPrice').value);
-    const riskRewardRatio = document.getElementById('riskReward').value.split(":"); // Assumes input like "1:3"
+    const riskRewardRatio = document.getElementById('riskReward').value.split(":");
     const risk = parseFloat(riskRewardRatio[0]);
     const reward = parseFloat(riskRewardRatio[1]);
     const tradeType = document.getElementById('tradeType').value;
@@ -28,3 +28,10 @@ function calculateStopLossAndReturns() {
         document.getElementById('absoluteLoss').innerText = `Absolute Loss at Stop Loss: ₹${lossAmount.toFixed(2)} (${Math.abs((entryPrice - stopLossPrice) / entryPrice * 100).toFixed(2)}%)`;
     }
 }
+
+// Event listeners for form inputs
+document.getElementById('tradeType').addEventListener('change', calculateStopLossAndReturns);
+document.getElementById('capital').addEventListener('input', calculateShares);
+document.getElementById('entryPrice').addEventListener('input', calculateShares);
+document.getElementById('targetPrice').addEventListener('input', calculateStopLossAndReturns);
+document.getElementById('riskReward').addEventListener('input', calculateStopLossAndReturns);

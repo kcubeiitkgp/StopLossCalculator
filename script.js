@@ -1,16 +1,3 @@
-function calculateShares() {
-    const capital = parseFloat(document.getElementById('capital').value) || 0;
-    const entryPrice = parseFloat(document.getElementById('entryPrice').value) || 0;
-
-    if (capital > 0 && entryPrice > 0) {
-        const shares = Math.floor(capital / entryPrice);
-        document.getElementById('numberOfShares').innerText = `Shares to Buy: ${shares}`;
-        calculateStopLossAndReturns();
-    } else {
-        document.getElementById('numberOfShares').innerText = "Shares to Buy: 0";
-    }
-}
-
 function calculateStopLossAndReturns() {
     const shares = parseFloat(document.getElementById('numberOfShares').textContent.split(": ")[1]);
     const entryPrice = parseFloat(document.getElementById('entryPrice').value);
@@ -24,10 +11,10 @@ function calculateStopLossAndReturns() {
 
         if (tradeType === 'long') {
             returnPercentage = ((targetPrice - entryPrice) / entryPrice) * 100;
-            stopLossPrice = entryPrice - (entryPrice * (risk / (risk + reward)));
+            stopLossPrice = entryPrice * (1 - (risk / (risk + reward)));
         } else { // Corrected logic for short trades
-            returnPercentage = ((entryPrice - targetPrice) / entryPrice) * 100; // Correct calculation for short trades
-            stopLossPrice = entryPrice + (entryPrice * (risk / (risk + reward)));
+            returnPercentage = ((entryPrice - targetPrice) / entryPrice) * 100;
+            stopLossPrice = entryPrice * (1 + (risk / (risk + reward)));
         }
 
         const lossAmount = Math.abs(entryPrice - stopLossPrice) * shares;

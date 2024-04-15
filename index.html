@@ -21,9 +21,11 @@
                 <input type="number" id="targetPrice" placeholder="Enter Target Price" required oninput="calculateStopLossAndReturns()">
                 <div id="absoluteReturn">Return: ₹0 (0%)</div>
                 <div class="risk-reward">
-                    <input type="number" id="risk (e.g 1)" placeholder="Risk" value="1" required oninput="calculateStopLossAndReturns()">
+                    <label for="risk">Risk </label>
+                    <input type="number" id="risk" placeholder="1" value="1" required oninput="calculateStopLossAndReturns()">
                     <span>:</span>
-                    <input type="number" id="reward" placeholder="Reward (e.g 2.88)" value="2.88" required oninput="calculateStopLossAndReturns()">
+                    <label for="reward">Reward </label>
+                    <input type="number" id="reward" placeholder="2.88" value="2.88" required oninput="calculateStopLossAndReturns()">
                 </div>
                 <div id="stopLossResult">Stop Loss Price: N/A</div>
                 <div id="absoluteLoss">Absolute Loss at Stop Loss: ₹0 (0%)</div>

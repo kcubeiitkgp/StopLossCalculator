@@ -7,22 +7,23 @@ function calculateStopLossAndReturns() {
     const tradeType = document.getElementById('tradeType').value;
 
     if (entryPrice > 0 && targetPrice > 0 && shares > 0) {
+        const priceDifference = targetPrice - entryPrice;
         let returnPercentage, stopLossPrice;
 
         if (tradeType === 'long') {
-            returnPercentage = ((targetPrice - entryPrice) / entryPrice) * 100;
-            stopLossPrice = entryPrice * (1 - (risk / (risk + reward)));
-        } else { // Corrected logic for short trades
-            returnPercentage = ((entryPrice - targetPrice) / entryPrice) * 100;
-            stopLossPrice = entryPrice * (1 + (risk / (risk + reward)));
+            returnPercentage = (priceDifference / entryPrice) * 100;
+            stopLossPrice = entryPrice - (priceDifference * (risk / reward));
+        } else { // Adjusted for short trades
+            returnPercentage = (-priceDifference / entryPrice) * 100;
+            stopLossPrice = entryPrice + (-priceDifference * (risk / reward));
         }
 
         const lossAmount = Math.abs(entryPrice - stopLossPrice) * shares;
-        const absoluteReturn = (tradeType === 'long' ? (targetPrice - entryPrice) : (entryPrice - targetPrice)) * shares;
+        const absoluteReturn = priceDifference * shares;
 
         document.getElementById('absoluteReturn').innerText = `Return: ₹${absoluteReturn.toFixed(2)} (${returnPercentage.toFixed(2)}%)`;
         document.getElementById('stopLossResult').innerText = `Stop Loss Price: ₹${stopLossPrice.toFixed(2)}`;
-        document.getElementById('absoluteLoss').innerText = `Absolute Loss at Stop Loss: ₹${lossAmount.toFixed(2)} (${Math.abs((entryPrice - stopLossPrice) / entryPrice * 100).toFixed(2)}%)`;
+        document.getElementById('absoluteLoss').innerText = `Absolute Loss at Stop Loss: ₹${lossAmount.toFixed(2)} (${Math.abs(priceDifference / entryPrice * 100 * (risk / reward)).toFixed(2)}%)`;
     }
 }
 
